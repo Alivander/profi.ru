@@ -1,0 +1,8 @@
+.m8-container {
+  display: block;
+
+  @media (min-width: $l-screen) {
+    width: $l-screen;
+    margin: 0 auto;
+  }
+}
