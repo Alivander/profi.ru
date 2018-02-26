@@ -1,0 +1,32 @@
+.m8-page {
+  min-width: $s-screen;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Proxima Nova", "Tahoma", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+.m8-page *,
+.m8-page *::before,
+.m8-page *::after {
+  box-sizing: inherit;
+}
+
+.m8-page img {
+  max-width: 100%;
+}
+
+.m8-page__subtitle {
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+
+  @media (min-width: $l-screen) {
+    font-size: 36px;
+  }
+}
