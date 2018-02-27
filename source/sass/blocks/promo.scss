@@ -3,6 +3,27 @@
   text-align: center;
   color: #ffffff;
   background-image: linear-gradient(to bottom, #f5c0b0, #de9b88);
+
+  @media (min-width: $l-screen) {
+    text-align: left;
+    padding-top: 10px;
+  }
+}
+
+.m8-promo__container {
+  @media (min-width: $l-screen) {
+    display: flex;
+  }
+}
+
+.m8-promo__wrapper {
+  @media (min-width: $l-screen) {
+    flex-shrink: 0;
+    width: 550px;
+    margin-right: 70px;
+    padding-top: 60px;
+    padding-left: 195px;
+  }
 }
 
 .m8-promo__content {
@@ -10,6 +31,12 @@
   margin-bottom: 15px;
   padding: 0;
   font-size: 20px;
+
+  @media (min-width: $l-screen) {
+    margin-bottom: 20px;
+    font-size: 48px;
+    line-height: 1.23;
+  }
 }
 
 .m8-promo__button {
@@ -21,4 +48,11 @@
   width: 175px;
   height: 225px;
   margin: 0 auto;
+
+  @media (min-width: $l-screen) {
+    width: 405px;
+    height: 520px;
+    align-self: flex-end;
+    flex-shrink: 0;
+  }
 }
