@@ -120,27 +120,31 @@
       <div class="m8-container">
         <h2 class="m8-promotion__title m8-page__subtitle">Акции</h2>
 
-        <div class="m8-slider m8-promotion__slider">
-          <button class="m8-slider__before" type="button">
-            <span class="m8-visually-hidden">Предыдущая акция</span>
-          </button>
-          <ul class="m8-slider__wrapper">
-            <li class="m8-slider__slide m8-promoution__slide">
-              <span class="m8-slider__discount">-10%</span>
-              <p class="m8-promoution__discription">
-                На комплексную услугу «Маникюр и педикюр с однотонным покрытием Shellac».
+        <div class="m8-slider m8-promotion__slider swiper-container">
+
+          <ul class="m8-slider__wrapper swiper-wrapper">
+            <li class="swiper-slide">
+              <p class="m8-slider__slide m8-promoution__slide">
+                <span class="m8-promoution__discount">-10%</span>
+                <span class="m8-promoution__discription">
+                  На комплексную услугу «Маникюр и педикюр с однотонным покрытием Shellac».
+                </span>
+                <a class="m8-promoution__link" href="#">Получить скидку</a>
               </p>
-              <a class="m8-promoution__link" href="#">Получить скидку</a>
             </li>
           </ul>
-          <button class="m8-slider__after" type="button">
+
+          <button class="m8-slider__prev swiper-button-prev" type="button">
+            <span class="m8-visually-hidden">Предыдущая акция</span>
+          </button>
+          <button class="m8-slider__next swiper-button-next" type="button">
             <span class="m8-visually-hidden">Следующая акция</span>
           </button>
         </div>
 
         <p class="m8-promoution__wrapper">
-          <a class="m8-button m8-button--opacity m8-promoution__button" href="#">Получить скидку</a>
-          <a class="m8-button m8-promoution__button" href="#">Подбрать мастера</a>
+          <a class="m8-button m8-button--opacity m8-promoution__button" href="#">Все акции</a>
+          <a class="m8-button m8-promoution__button" href="#">Подобрать мастера</a>
         </p>
       </div>
     </section>
@@ -217,6 +221,20 @@
               </blockquote>
               <cite class="m8-reviews__author">Жанна</cite>
             </li>
+            <li class="m8-slider__slide m8-reviews__slide">
+              <img class="m8-reviews__image" src="img/m8-review-01@1x.png" srcset="img/m8-review-01@2x.png 2x" width="180" height="180" alt="Жанна">
+              <blockquote class="m8-reviews__review">
+                «Я хотела научиться делать себе красивый макияж, и Ольга мне в этом помогла! Наша встреча прошла удачно. Ольга понравилась и как человек, и как мастер».
+              </blockquote>
+              <cite class="m8-reviews__author">Жанна</cite>
+            </li>
+            <li class="m8-slider__slide m8-reviews__slide">
+              <img class="m8-reviews__image" src="img/m8-review-01@1x.png" srcset="img/m8-review-01@2x.png 2x" width="180" height="180" alt="Жанна">
+              <blockquote class="m8-reviews__review">
+                «Я хотела научиться делать себе красивый макияж, и Ольга мне в этом помогла! Наша встреча прошла удачно. Ольга понравилась и как человек, и как мастер».
+              </blockquote>
+              <cite class="m8-reviews__author">Жанна</cite>
+            </li>
           </ul>
           <button class="m8-slider__after" type="button">
             <span class="m8-visually-hidden">Следующий отзыв</span>
@@ -227,6 +245,9 @@
       </div>
     </section>
   </main>
+
+  <script src="js/swiper.min.js"></script>
+  <script src="js/script.min.js"></script>
 
 </body>
 </html>

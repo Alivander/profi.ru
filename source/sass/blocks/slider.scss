@@ -1,0 +1,28 @@
+.m8-slider__wrapper {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.m8-slider__slide {
+  margin: 0 20px;
+}
+
+.m8-slider__prev,
+.m8-slider__next {
+  @include button-reset;
+  @include img-contain;
+  width: 10px;
+  height: 20px;
+  margin-top: -10px;
+  background-image: url("../img/m8-arrow.svg");
+}
+
+.m8-slider__prev {
+  left: 5px;
+}
+
+.m8-slider__next {
+  right: 5px;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,76 @@
+.m8-promoution {
+  padding: 65px 0 55px;
+  background-color: #f7e5e0;
+  background-image: url("../img/m8-flowers-mobile@1x.png");
+  background-position: center 40px;
+  background-size: 598px 215px;
+  background-repeat: no-repeat;
+}
+
+.m8-promotion__title {
+  margin-bottom: 25px;
+}
+
+.m8-promoution__wrapper {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.m8-promoution__slide {
+  position: relative;
+  padding: 25px 10px 20px;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.25;
+  background-color: #ffffff;
+  border: 2px solid #ffc602;
+  border-radius: 6px;
+}
+
+.m8-promoution__discount {
+  position: absolute;
+  top: -16px;
+  left: 15px;
+  display: block;
+  width: 70px;
+  height: 32px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  background-color: #ffc602;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -13px;
+    border: 16px solid #ffc602;
+    border-top-color: transparent;
+    border-right: none;
+    border-bottom-color: transparent;
+    border-left-width: 13px;
+  }
+}
+.m8-promoution__discription {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.m8-promoution__link {
+  display: block;
+  color: #0188ff;
+  text-decoration: none;
+  transition-duration: 0.25s;
+  outline: none;
+
+  &:focus,
+  &:hover {
+    color: #0188ff;
+    text-decoration: underline;
+  }
+}
+
+.m8-promoution__button {
+  margin-bottom: 15px;
+}
