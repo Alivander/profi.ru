@@ -4,6 +4,7 @@
   width: 100%;
   padding: 15px;
   font-weight: 700;
+  font-size: 16px;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
@@ -35,5 +36,12 @@
       color: $red;
       background-color: transparent;
     }
+  }
+
+  @media (min-width: $l-screen) {
+    width: 330px;
+    padding: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
   }
 }
