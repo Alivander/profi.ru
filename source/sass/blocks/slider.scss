@@ -1,11 +1,13 @@
 .m8-slider__wrapper {
   display: flex;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .m8-slider__slide {
-  margin: 0 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .m8-slider__prev,

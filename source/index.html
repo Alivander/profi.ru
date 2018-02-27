@@ -123,8 +123,8 @@
         <div class="m8-slider m8-promotion__slider swiper-container">
 
           <ul class="m8-slider__wrapper swiper-wrapper">
-            <li class="swiper-slide">
-              <p class="m8-slider__slide m8-promoution__slide">
+            <li class="m8-slider__slide swiper-slide">
+              <p class="m8-promoution__slide">
                 <span class="m8-promoution__discount">-10%</span>
                 <span class="m8-promoution__discription">
                   На комплексную услугу «Маникюр и педикюр с однотонным покрытием Shellac».
@@ -209,26 +209,9 @@
       <div class="m8-container">
         <h2 class="m8-reviews__title m8-page__subtitle">Отзывы</h2>
 
-        <div class="m8-slider m8-reviews__slider">
-          <button class="m8-slider__before" type="button">
-            <span class="m8-visually-hidden">Предыдущий отзыв</span>
-          </button>
-          <ul class="m8-slider__wrapper">
-            <li class="m8-slider__slide m8-reviews__slide">
-              <img class="m8-reviews__image" src="img/m8-review-01@1x.png" srcset="img/m8-review-01@2x.png 2x" width="180" height="180" alt="Жанна">
-              <blockquote class="m8-reviews__review">
-                «Я хотела научиться делать себе красивый макияж, и Ольга мне в этом помогла! Наша встреча прошла удачно. Ольга понравилась и как человек, и как мастер».
-              </blockquote>
-              <cite class="m8-reviews__author">Жанна</cite>
-            </li>
-            <li class="m8-slider__slide m8-reviews__slide">
-              <img class="m8-reviews__image" src="img/m8-review-01@1x.png" srcset="img/m8-review-01@2x.png 2x" width="180" height="180" alt="Жанна">
-              <blockquote class="m8-reviews__review">
-                «Я хотела научиться делать себе красивый макияж, и Ольга мне в этом помогла! Наша встреча прошла удачно. Ольга понравилась и как человек, и как мастер».
-              </blockquote>
-              <cite class="m8-reviews__author">Жанна</cite>
-            </li>
-            <li class="m8-slider__slide m8-reviews__slide">
+        <div class="m8-slider m8-reviews__slider swiper-container">
+          <ul class="m8-slider__wrapper swiper-wrapper">
+            <li class="m8-slider__slide m8-reviews__slide swiper-slide">
               <img class="m8-reviews__image" src="img/m8-review-01@1x.png" srcset="img/m8-review-01@2x.png 2x" width="180" height="180" alt="Жанна">
               <blockquote class="m8-reviews__review">
                 «Я хотела научиться делать себе красивый макияж, и Ольга мне в этом помогла! Наша встреча прошла удачно. Ольга понравилась и как человек, и как мастер».
@@ -236,12 +219,15 @@
               <cite class="m8-reviews__author">Жанна</cite>
             </li>
           </ul>
-          <button class="m8-slider__after" type="button">
+          <button class="m8-slider__prev m8-reviews__prev swiper-button-prev" type="button">
+            <span class="m8-visually-hidden">Предыдущий отзыв</span>
+          </button>
+          <button class="m8-slider__next m8-reviews__next swiper-button-next" type="button">
             <span class="m8-visually-hidden">Следующий отзыв</span>
           </button>
         </div>
 
-        <a class="m8-button m8-reviews__button" href="#">Подбрать мастера</a>
+        <a class="m8-button m8-reviews__button" href="#">Подобрать мастера</a>
       </div>
     </section>
   </main>
