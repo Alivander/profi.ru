@@ -1,9 +1,17 @@
 .m8-examples {
-  padding: 5px 0 0;
+  padding-top: 5px;
+
+  @media (min-width: $l-screen) {
+    padding-top: 15px;
+  }
 }
 
 .m8-examples__title {
   margin-bottom: 5px;
+
+  @media (min-width: $l-screen) {
+    margin-bottom: 20px;
+  }
 }
 
 .m8-examples__list {
@@ -21,4 +29,10 @@
   height: 95px;
   margin-bottom: 10px;
   object-fit: cover;
+
+  @media (min-width: $l-screen) {
+    width: 178px;
+    height: 171px;
+    margin-bottom: 17px;
+  }
 }
