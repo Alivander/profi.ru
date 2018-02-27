@@ -1,9 +1,11 @@
-.cc-button {
+.m8-button {
   @include button-reset;
   display: inline-block;
+  width: 100%;
   padding: 15px;
   font-weight: 700;
   text-align: center;
+  text-decoration: none;
   color: #ffffff;
   background-color: $red;
   border-radius: 8px;
