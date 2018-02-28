@@ -33,8 +33,9 @@
     &:focus,
     &:hover,
     &:active {
-      color: $red;
-      background-color: transparent;
+      color: #ffffff;
+      background-color: $l-red;
+      border-color: $l-red;
     }
   }
 
