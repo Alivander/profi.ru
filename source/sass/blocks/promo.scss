@@ -1,5 +1,5 @@
 .m8-promo {
-  padding: 15px 20px 0;
+  padding-top: 15px;
   text-align: center;
   color: #ffffff;
   background-image: linear-gradient(to bottom, #f5c0b0, #de9b88);
@@ -11,8 +11,11 @@
 }
 
 .m8-promo__container {
+  padding: 0 20px;
+
   @media (min-width: $l-screen) {
     display: flex;
+    padding: 0;
   }
 }
 
