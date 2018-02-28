@@ -43,7 +43,7 @@
   margin: 0;
   padding: 0 20px;
 
-  @media (min-width: $l-screen) {
+  @media (min-width: $m-screen) {
     display: flex;
     justify-content: center;
   }
@@ -153,7 +153,7 @@
 .m8-promoution__button {
   margin-bottom: 15px;
 
-  @media (min-width: $l-screen) {
+  @media (min-width: $m-screen) {
     margin: 0 10px;
   }
 }

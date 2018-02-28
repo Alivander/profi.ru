@@ -1,4 +1,10 @@
 .m8-slider {
+  width: 100%;
+
+  @media (min-width: $m-screen) {
+    width: 430px;
+  }
+
   @media (min-width: $l-screen) {
     width: 860px;
   }

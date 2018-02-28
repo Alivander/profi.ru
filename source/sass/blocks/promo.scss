@@ -4,7 +4,7 @@
   color: #ffffff;
   background-image: linear-gradient(to bottom, #f5c0b0, #de9b88);
 
-  @media (min-width: $l-screen) {
+  @media (min-width: $m-screen) {
     text-align: left;
     padding-top: 10px;
   }
@@ -13,15 +13,25 @@
 .m8-promo__container {
   padding: 0 20px;
 
-  @media (min-width: $l-screen) {
+  @media (min-width: $m-screen) {
     display: flex;
+  }
+
+  @media (min-width: $l-screen) {
     padding: 0;
   }
 }
 
 .m8-promo__wrapper {
-  @media (min-width: $l-screen) {
+  @media (min-width: $m-screen) {
     flex-shrink: 0;
+    width: 350px;
+    margin-right: 50px;
+    padding-top: 30px;
+    padding-left: 120px;
+  }
+
+  @media (min-width: $l-screen) {
     width: 550px;
     margin-right: 70px;
     padding-top: 60px;
