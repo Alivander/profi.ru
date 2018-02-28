@@ -1,13 +1,8 @@
 .m8-container {
   display: block;
-  width: $s-screen;
   margin: 0 auto;
 
-  @media (min-width: $m-screen) {
-    width: $m-screen;
-  }
-
-  @media (min-width: $l-screen) {
-    width: $l-screen;
+  @media (min-width: $xl-screen) {
+    width: $xl-screen;
   }
 }

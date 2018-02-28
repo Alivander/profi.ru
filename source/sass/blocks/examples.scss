@@ -19,14 +19,26 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 0;
+  width: $s-screen;
+  margin: 0 auto;
   padding: 0;
+
+  @media (min-width: $m-screen) {
+    width: 574px;
+  }
+
+  @media (min-width: $l-screen) {
+    width: 772px;
+  }
+
+  @media (min-width: $xl-screen) {
+    width: 100%;
+  }
 }
 
 .m8-examples__image {
   display: block;
   width: 100px;
-  height: 95px;
   margin-bottom: 10px;
   object-fit: cover;
 
