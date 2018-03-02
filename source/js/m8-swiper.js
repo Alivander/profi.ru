@@ -1368,8 +1368,8 @@ var updateSlides = function () {
           ("margin-" + (swiper.isHorizontal() ? 'top' : 'left')),
           (row !== 0 && params.spaceBetween) && (((params.spaceBetween) + "px"))
         )
-        .attr('data-swiper-column', column)
-        .attr('data-swiper-row', row);
+        .attr('data-m8-swiper-column', column)
+        .attr('data-m8-swiper-row', row);
     }
     if (slide.css('display') === 'none') { continue; } // eslint-disable-line
     if (params.slidesPerView === 'auto') {
@@ -1615,7 +1615,7 @@ var updateSlidesClasses = function () {
 
   var activeSlide;
   if (isVirtual) {
-    activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + activeIndex + "\"]"));
+    activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-m8-swiper-slide-index=\"" + activeIndex + "\"]"));
   } else {
     activeSlide = slides.eq(activeIndex);
   }
@@ -1627,11 +1627,11 @@ var updateSlidesClasses = function () {
     // Duplicate to all looped slides
     if (activeSlide.hasClass(params.slideDuplicateClass)) {
       $wrapperEl
-        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + realIndex + "\"]"))
+        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-m8-swiper-slide-index=\"" + realIndex + "\"]"))
         .addClass(params.slideDuplicateActiveClass);
     } else {
       $wrapperEl
-        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]"))
+        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-m8-swiper-slide-index=\"" + realIndex + "\"]"))
         .addClass(params.slideDuplicateActiveClass);
     }
   }
@@ -1651,20 +1651,20 @@ var updateSlidesClasses = function () {
     // Duplicate to all looped slides
     if (nextSlide.hasClass(params.slideDuplicateClass)) {
       $wrapperEl
-        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-m8-swiper-slide-index=\"" + (nextSlide.attr('data-m8-swiper-slide-index')) + "\"]"))
         .addClass(params.slideDuplicateNextClass);
     } else {
       $wrapperEl
-        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-m8-swiper-slide-index=\"" + (nextSlide.attr('data-m8-swiper-slide-index')) + "\"]"))
         .addClass(params.slideDuplicateNextClass);
     }
     if (prevSlide.hasClass(params.slideDuplicateClass)) {
       $wrapperEl
-        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+        .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-m8-swiper-slide-index=\"" + (prevSlide.attr('data-m8-swiper-slide-index')) + "\"]"))
         .addClass(params.slideDuplicatePrevClass);
     } else {
       $wrapperEl
-        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+        .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-m8-swiper-slide-index=\"" + (prevSlide.attr('data-m8-swiper-slide-index')) + "\"]"))
         .addClass(params.slideDuplicatePrevClass);
     }
   }
@@ -1713,7 +1713,7 @@ var updateActiveIndex = function (newActiveIndex) {
   }
 
   // Get real index
-  var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-swiper-slide-index') || activeIndex, 10);
+  var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-m8-swiper-slide-index') || activeIndex, 10);
 
   Utils.extend(swiper, {
     snapIndex: snapIndex,
@@ -1743,7 +1743,7 @@ var updateClickedSlide = function (e) {
   if (slide && slideFound) {
     swiper.clickedSlide = slide;
     if (swiper.virtual && swiper.params.virtual.enabled) {
-      swiper.clickedIndex = parseInt($$1(slide).attr('data-swiper-slide-index'), 10);
+      swiper.clickedIndex = parseInt($$1(slide).attr('data-m8-swiper-slide-index'), 10);
     } else {
       swiper.clickedIndex = $$1(slide).index();
     }
@@ -2098,7 +2098,7 @@ var slideToClickedSlide = function () {
   var realIndex;
   if (params.loop) {
     if (swiper.animating) { return; }
-    realIndex = parseInt($$1(swiper.clickedSlide).attr('data-swiper-slide-index'), 10);
+    realIndex = parseInt($$1(swiper.clickedSlide).attr('data-m8-swiper-slide-index'), 10);
     if (params.centeredSlides) {
       if (
         (slideToIndex < swiper.loopedSlides - (slidesPerView / 2)) ||
@@ -2106,7 +2106,7 @@ var slideToClickedSlide = function () {
       ) {
         swiper.loopFix();
         slideToIndex = $wrapperEl
-          .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+          .children(("." + (params.slideClass) + "[data-m8-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
           .eq(0)
           .index();
 
@@ -2119,7 +2119,7 @@ var slideToClickedSlide = function () {
     } else if (slideToIndex > swiper.slides.length - slidesPerView) {
       swiper.loopFix();
       slideToIndex = $wrapperEl
-        .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+        .children(("." + (params.slideClass) + "[data-m8-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
         .eq(0)
         .index();
 
@@ -2177,7 +2177,7 @@ var loopCreate = function () {
     var slide = $$1(el);
     if (index < swiper.loopedSlides) { appendSlides.push(el); }
     if (index < slides.length && index >= slides.length - swiper.loopedSlides) { prependSlides.push(el); }
-    slide.attr('data-swiper-slide-index', index);
+    slide.attr('data-m8-swiper-slide-index', index);
   });
   for (var i$1 = 0; i$1 < appendSlides.length; i$1 += 1) {
     $wrapperEl.append($$1(appendSlides[i$1].cloneNode(true)).addClass(params.slideDuplicateClass));
@@ -2232,7 +2232,7 @@ var loopDestroy = function () {
   var params = swiper.params;
   var slides = swiper.slides;
   $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
-  slides.removeAttr('data-swiper-slide-index');
+  slides.removeAttr('data-m8-swiper-slide-index');
 };
 
 var loop = {
@@ -3422,25 +3422,25 @@ var defaults = {
   allowSlideNext: true,
   swipeHandler: null, // '.swipe-handler',
   noSwiping: true,
-  noSwipingClass: 'swiper-no-swiping',
+  noSwipingClass: 'm8-swiper-no-swiping',
   noSwipingSelector: null,
 
   // Passive Listeners
   passiveListeners: true,
 
   // NS
-  containerModifierClass: 'swiper-container-', // NEW
-  slideClass: 'swiper-slide',
-  slideBlankClass: 'swiper-slide-invisible-blank',
-  slideActiveClass: 'swiper-slide-active',
-  slideDuplicateActiveClass: 'swiper-slide-duplicate-active',
-  slideVisibleClass: 'swiper-slide-visible',
-  slideDuplicateClass: 'swiper-slide-duplicate',
-  slideNextClass: 'swiper-slide-next',
-  slideDuplicateNextClass: 'swiper-slide-duplicate-next',
-  slidePrevClass: 'swiper-slide-prev',
-  slideDuplicatePrevClass: 'swiper-slide-duplicate-prev',
-  wrapperClass: 'swiper-wrapper',
+  containerModifierClass: 'm8-swiper-container-', // NEW
+  slideClass: 'm8-swiper-slide',
+  slideBlankClass: 'm8-swiper-slide-invisible-blank',
+  slideActiveClass: 'm8-swiper-slide-active',
+  slideDuplicateActiveClass: 'm8-swiper-slide-duplicate-active',
+  slideVisibleClass: 'm8-swiper-slide-visible',
+  slideDuplicateClass: 'm8-swiper-slide-duplicate',
+  slideNextClass: 'm8-swiper-slide-next',
+  slideDuplicateNextClass: 'm8-swiper-slide-duplicate-next',
+  slidePrevClass: 'm8-swiper-slide-prev',
+  slideDuplicatePrevClass: 'm8-swiper-slide-duplicate-prev',
+  wrapperClass: 'm8-swiper-wrapper',
 
   // Callbacks
   runCallbacksOnInit: true,
@@ -3831,9 +3831,9 @@ var Swiper$1 = (function (SwiperClass$$1) {
             params.slideNextClass,
             params.slidePrevClass ].join(' '))
           .removeAttr('style')
-          .removeAttr('data-swiper-slide-index')
-          .removeAttr('data-swiper-column')
-          .removeAttr('data-swiper-row');
+          .removeAttr('data-m8-swiper-slide-index')
+          .removeAttr('data-m8-swiper-column')
+          .removeAttr('data-m8-swiper-row');
       }
     }
 
@@ -4092,7 +4092,7 @@ var Virtual = {
     } else {
       for (var i = previousFrom; i <= previousTo; i += 1) {
         if (i < from || i > to) {
-          swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + i + "\"]")).remove();
+          swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-m8-swiper-slide-index=\"" + i + "\"]")).remove();
         }
       }
     }
@@ -4112,7 +4112,7 @@ var Virtual = {
     prependIndexes.sort(function (a, b) { return a < b; }).forEach(function (index) {
       swiper.$wrapperEl.prepend(renderSlide(slides[index], index));
     });
-    swiper.$wrapperEl.children('.swiper-slide').css(offsetProp, (offset + "px"));
+    swiper.$wrapperEl.children('.m8-swiper-slide').css(offsetProp, (offset + "px"));
     onRendered();
   },
   renderSlide: function renderSlide(slide, index) {
@@ -4123,8 +4123,8 @@ var Virtual = {
     }
     var $slideEl = params.renderSlide
       ? $$1(params.renderSlide.call(swiper, slide, index))
-      : $$1(("<div class=\"" + (swiper.params.slideClass) + "\" data-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
-    if (!$slideEl.attr('data-swiper-slide-index')) { $slideEl.attr('data-swiper-slide-index', index); }
+      : $$1(("<div class=\"" + (swiper.params.slideClass) + "\" data-m8-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
+    if (!$slideEl.attr('data-m8-swiper-slide-index')) { $slideEl.attr('data-m8-swiper-slide-index', index); }
     if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
     return $slideEl;
   },
@@ -4642,9 +4642,9 @@ var Navigation$1 = {
       prevEl: null,
 
       hideOnClick: false,
-      disabledClass: 'swiper-button-disabled',
-      hiddenClass: 'swiper-button-hidden',
-      lockClass: 'swiper-button-lock',
+      disabledClass: 'm8-swiper-button-disabled',
+      hiddenClass: 'm8-swiper-button-hidden',
+      lockClass: 'm8-swiper-button-lock',
     },
   },
   create: function create() {
@@ -4933,15 +4933,15 @@ var Pagination$1 = {
       type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
       dynamicBullets: false,
       dynamicMainBullets: 1,
-      bulletClass: 'swiper-pagination-bullet',
-      bulletActiveClass: 'swiper-pagination-bullet-active',
-      modifierClass: 'swiper-pagination-', // NEW
-      currentClass: 'swiper-pagination-current',
-      totalClass: 'swiper-pagination-total',
-      hiddenClass: 'swiper-pagination-hidden',
-      progressbarFillClass: 'swiper-pagination-progressbar-fill',
-      clickableClass: 'swiper-pagination-clickable', // NEW
-      lockClass: 'swiper-pagination-lock',
+      bulletClass: 'm8-swiper-pagination-bullet',
+      bulletActiveClass: 'm8-swiper-pagination-bullet-active',
+      modifierClass: 'm8-swiper-pagination-', // NEW
+      currentClass: 'm8-swiper-pagination-current',
+      totalClass: 'm8-swiper-pagination-total',
+      hiddenClass: 'm8-swiper-pagination-hidden',
+      progressbarFillClass: 'm8-swiper-pagination-progressbar-fill',
+      clickableClass: 'm8-swiper-pagination-clickable', // NEW
+      lockClass: 'm8-swiper-pagination-lock',
     },
   },
   create: function create() {
@@ -5297,8 +5297,8 @@ var Scrollbar$1 = {
       hide: false,
       draggable: false,
       snapOnRelease: true,
-      lockClass: 'swiper-scrollbar-lock',
-      dragClass: 'swiper-scrollbar-drag',
+      lockClass: 'm8-swiper-scrollbar-lock',
+      dragClass: 'm8-swiper-scrollbar-drag',
     },
   },
   create: function create() {
@@ -5364,11 +5364,11 @@ var Parallax = {
     var $el = $$1(el);
     var rtlFactor = rtl ? -1 : 1;
 
-    var p = $el.attr('data-swiper-parallax') || '0';
-    var x = $el.attr('data-swiper-parallax-x');
-    var y = $el.attr('data-swiper-parallax-y');
-    var scale = $el.attr('data-swiper-parallax-scale');
-    var opacity = $el.attr('data-swiper-parallax-opacity');
+    var p = $el.attr('data-m8-swiper-parallax') || '0';
+    var x = $el.attr('data-m8-swiper-parallax-x');
+    var y = $el.attr('data-m8-swiper-parallax-y');
+    var scale = $el.attr('data-m8-swiper-parallax-scale');
+    var opacity = $el.attr('data-m8-swiper-parallax-opacity');
 
     if (x || y) {
       x = x || '0';
@@ -5409,7 +5409,7 @@ var Parallax = {
     var slides = swiper.slides;
     var progress = swiper.progress;
     var snapGrid = swiper.snapGrid;
-    $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+    $el.children('[data-m8-swiper-parallax], [data-m8-swiper-parallax-x], [data-m8-swiper-parallax-y]')
       .each(function (index, el) {
         swiper.parallax.setTransform(el, progress);
       });
@@ -5419,7 +5419,7 @@ var Parallax = {
         slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
       }
       slideProgress = Math.min(Math.max(slideProgress, -1), 1);
-      $$1(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+      $$1(slideEl).find('[data-m8-swiper-parallax], [data-m8-swiper-parallax-x], [data-m8-swiper-parallax-y]')
         .each(function (index, el) {
           swiper.parallax.setTransform(el, slideProgress);
         });
@@ -5430,10 +5430,10 @@ var Parallax = {
 
     var swiper = this;
     var $el = swiper.$el;
-    $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+    $el.find('[data-m8-swiper-parallax], [data-m8-swiper-parallax-x], [data-m8-swiper-parallax-y]')
       .each(function (index, parallaxEl) {
         var $parallaxEl = $$1(parallaxEl);
-        var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
+        var parallaxDuration = parseInt($parallaxEl.attr('data-m8-swiper-parallax-duration'), 10) || duration;
         if (duration === 0) { parallaxDuration = 0; }
         $parallaxEl.transition(parallaxDuration);
       });
@@ -5508,11 +5508,11 @@ var Zoom = {
       gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
     }
     if (!gesture.$slideEl || !gesture.$slideEl.length) {
-      gesture.$slideEl = $$1(e.target).closest('.swiper-slide');
+      gesture.$slideEl = $$1(e.target).closest('.m8-swiper-slide');
       if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
       gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
       gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-      gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+      gesture.maxRatio = gesture.$imageWrapEl.attr('data-m8-swiper-zoom') || params.maxRatio;
       if (gesture.$imageWrapEl.length === 0) {
         gesture.$imageEl = undefined;
         return;
@@ -5785,8 +5785,8 @@ var Zoom = {
       touchY = image.touchesStart.y;
     }
 
-    zoom.scale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-    zoom.currentScale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+    zoom.scale = gesture.$imageWrapEl.attr('data-m8-swiper-zoom') || params.maxRatio;
+    zoom.currentScale = gesture.$imageWrapEl.attr('data-m8-swiper-zoom') || params.maxRatio;
     if (e) {
       slideWidth = gesture.$slideEl[0].offsetWidth;
       slideHeight = gesture.$slideEl[0].offsetHeight;
@@ -5860,13 +5860,13 @@ var Zoom = {
 
     // Scale image
     if (Support.gestures) {
-      swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      swiper.$wrapperEl.on('gesturestart', '.m8-swiper-slide', zoom.onGestureStart, passiveListener);
+      swiper.$wrapperEl.on('gesturechange', '.m8-swiper-slide', zoom.onGestureChange, passiveListener);
+      swiper.$wrapperEl.on('gestureend', '.m8-swiper-slide', zoom.onGestureEnd, passiveListener);
     } else if (swiper.touchEvents.start === 'touchstart') {
-      swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      swiper.$wrapperEl.on(swiper.touchEvents.start, '.m8-swiper-slide', zoom.onGestureStart, passiveListener);
+      swiper.$wrapperEl.on(swiper.touchEvents.move, '.m8-swiper-slide', zoom.onGestureChange, passiveListener);
+      swiper.$wrapperEl.on(swiper.touchEvents.end, '.m8-swiper-slide', zoom.onGestureEnd, passiveListener);
     }
 
     // Move image
@@ -5883,13 +5883,13 @@ var Zoom = {
 
     // Scale image
     if (Support.gestures) {
-      swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      swiper.$wrapperEl.off('gesturestart', '.m8-swiper-slide', zoom.onGestureStart, passiveListener);
+      swiper.$wrapperEl.off('gesturechange', '.m8-swiper-slide', zoom.onGestureChange, passiveListener);
+      swiper.$wrapperEl.off('gestureend', '.m8-swiper-slide', zoom.onGestureEnd, passiveListener);
     } else if (swiper.touchEvents.start === 'touchstart') {
-      swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      swiper.$wrapperEl.off(swiper.touchEvents.start, '.m8-swiper-slide', zoom.onGestureStart, passiveListener);
+      swiper.$wrapperEl.off(swiper.touchEvents.move, '.m8-swiper-slide', zoom.onGestureChange, passiveListener);
+      swiper.$wrapperEl.off(swiper.touchEvents.end, '.m8-swiper-slide', zoom.onGestureEnd, passiveListener);
     }
 
     // Move image
@@ -5905,8 +5905,8 @@ var Zoom$1 = {
       maxRatio: 3,
       minRatio: 1,
       toggle: true,
-      containerClass: 'swiper-zoom-container',
-      zoomedSlideClass: 'swiper-slide-zoomed',
+      containerClass: 'm8-swiper-zoom-container',
+      zoomedSlideClass: 'm8-swiper-slide-zoomed',
     },
   },
   create: function create() {
@@ -6002,7 +6002,7 @@ var Lazy = {
     var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
 
     var $slideEl = isVirtual
-      ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]"))
+      ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-m8-swiper-slide-index=\"" + index + "\"]"))
       : swiper.slides.eq(index);
 
     var $images = $slideEl.find(("." + (params.elementClass) + ":not(." + (params.loadedClass) + "):not(." + (params.loadingClass) + ")"));
@@ -6043,12 +6043,12 @@ var Lazy = {
         $imageEl.addClass(params.loadedClass).removeClass(params.loadingClass);
         $slideEl.find(("." + (params.preloaderClass))).remove();
         if (swiper.params.loop && loadInDuplicate) {
-          var slideOriginalIndex = $slideEl.attr('data-swiper-slide-index');
+          var slideOriginalIndex = $slideEl.attr('data-m8-swiper-slide-index');
           if ($slideEl.hasClass(swiper.params.slideDuplicateClass)) {
-            var originalSlide = swiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
+            var originalSlide = swiper.$wrapperEl.children(("[data-m8-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
             swiper.lazy.loadInSlide(originalSlide.index(), false);
           } else {
-            var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
+            var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-m8-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
             swiper.lazy.loadInSlide(duplicatedSlide.index(), false);
           }
         }
@@ -6074,7 +6074,7 @@ var Lazy = {
 
     function slideExist(index) {
       if (isVirtual) {
-        if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]")).length) {
+        if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-m8-swiper-slide-index=\"" + index + "\"]")).length) {
           return true;
         }
       } else if (slides[index]) { return true; }
@@ -6082,7 +6082,7 @@ var Lazy = {
     }
     function slideIndex(slideEl) {
       if (isVirtual) {
-        return $$1(slideEl).attr('data-swiper-slide-index');
+        return $$1(slideEl).attr('data-m8-swiper-slide-index');
       }
       return $$1(slideEl).index();
     }
@@ -6090,7 +6090,7 @@ var Lazy = {
     if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
     if (swiper.params.watchSlidesVisibility) {
       $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
-        var index = isVirtual ? $$1(slideEl).attr('data-swiper-slide-index') : $$1(slideEl).index();
+        var index = isVirtual ? $$1(slideEl).attr('data-m8-swiper-slide-index') : $$1(slideEl).index();
         swiper.lazy.loadInSlide(index);
       });
     } else if (slidesPerView > 1) {
@@ -6134,10 +6134,10 @@ var Lazy$1 = {
       loadPrevNextAmount: 1,
       loadOnTransitionStart: false,
 
-      elementClass: 'swiper-lazy',
-      loadingClass: 'swiper-lazy-loading',
-      loadedClass: 'swiper-lazy-loaded',
-      preloaderClass: 'swiper-lazy-preloader',
+      elementClass: 'm8-swiper-lazy',
+      loadingClass: 'm8-swiper-lazy-loading',
+      loadedClass: 'm8-swiper-lazy-loaded',
+      preloaderClass: 'm8-swiper-lazy-preloader',
     },
   },
   create: function create() {
@@ -6532,7 +6532,7 @@ var A11y = {
   params: {
     a11y: {
       enabled: false,
-      notificationClass: 'swiper-notification',
+      notificationClass: 'm8-swiper-notification',
       prevSlideMessage: 'Previous slide',
       nextSlideMessage: 'Next slide',
       firstSlideMessage: 'This is the first slide',
@@ -6798,8 +6798,8 @@ var Autoplay = {
     var swiper = this;
     var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
     var delay = swiper.params.autoplay.delay;
-    if ($activeSlideEl.attr('data-swiper-autoplay')) {
-      delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
+    if ($activeSlideEl.attr('data-m8-swiper-autoplay')) {
+      delay = $activeSlideEl.attr('data-m8-swiper-autoplay') || swiper.params.autoplay.delay;
     }
     swiper.autoplay.timeout = Utils.nextTick(function () {
       if (swiper.params.autoplay.reverseDirection) {
@@ -7044,16 +7044,16 @@ var Cube = {
     var $cubeShadowEl;
     if (params.shadow) {
       if (isHorizontal) {
-        $cubeShadowEl = $wrapperEl.find('.swiper-cube-shadow');
+        $cubeShadowEl = $wrapperEl.find('.m8-swiper-cube-shadow');
         if ($cubeShadowEl.length === 0) {
-          $cubeShadowEl = $$1('<div class="swiper-cube-shadow"></div>');
+          $cubeShadowEl = $$1('<div class="m8-swiper-cube-shadow"></div>');
           $wrapperEl.append($cubeShadowEl);
         }
         $cubeShadowEl.css({ height: (swiperWidth + "px") });
       } else {
-        $cubeShadowEl = $el.find('.swiper-cube-shadow');
+        $cubeShadowEl = $el.find('.m8-swiper-cube-shadow');
         if ($cubeShadowEl.length === 0) {
-          $cubeShadowEl = $$1('<div class="swiper-cube-shadow"></div>');
+          $cubeShadowEl = $$1('<div class="m8-swiper-cube-shadow"></div>');
           $el.append($cubeShadowEl);
         }
       }
@@ -7062,7 +7062,7 @@ var Cube = {
       var $slideEl = slides.eq(i);
       var slideIndex = i;
       if (isVirtual) {
-        slideIndex = parseInt($slideEl.attr('data-swiper-slide-index'), 10);
+        slideIndex = parseInt($slideEl.attr('data-m8-swiper-slide-index'), 10);
       }
       var slideAngle = slideIndex * 90;
       var round = Math.floor(slideAngle / 360);
@@ -7104,14 +7104,14 @@ var Cube = {
       $slideEl.transform(transform);
       if (params.slideShadows) {
         // Set shadows
-        var shadowBefore = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-        var shadowAfter = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+        var shadowBefore = isHorizontal ? $slideEl.find('.m8-swiper-slide-shadow-left') : $slideEl.find('.m8-swiper-slide-shadow-top');
+        var shadowAfter = isHorizontal ? $slideEl.find('.m8-swiper-slide-shadow-right') : $slideEl.find('.m8-swiper-slide-shadow-bottom');
         if (shadowBefore.length === 0) {
-          shadowBefore = $$1(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+          shadowBefore = $$1(("<div class=\"m8-swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
           $slideEl.append(shadowBefore);
         }
         if (shadowAfter.length === 0) {
-          shadowAfter = $$1(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+          shadowAfter = $$1(("<div class=\"m8-swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
           $slideEl.append(shadowAfter);
         }
         if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
@@ -7150,10 +7150,10 @@ var Cube = {
     var slides = swiper.slides;
     slides
       .transition(duration)
-      .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+      .find('.m8-swiper-slide-shadow-top, .m8-swiper-slide-shadow-right, .m8-swiper-slide-shadow-bottom, .m8-swiper-slide-shadow-left')
       .transition(duration);
     if (swiper.params.cubeEffect.shadow && !swiper.isHorizontal()) {
-      $el.find('.swiper-cube-shadow').transition(duration);
+      $el.find('.m8-swiper-cube-shadow').transition(duration);
     }
   },
 };
@@ -7238,14 +7238,14 @@ var Flip = {
 
       if (swiper.params.flipEffect.slideShadows) {
         // Set shadows
-        var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-        var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+        var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.m8-swiper-slide-shadow-left') : $slideEl.find('.m8-swiper-slide-shadow-top');
+        var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.m8-swiper-slide-shadow-right') : $slideEl.find('.m8-swiper-slide-shadow-bottom');
         if (shadowBefore.length === 0) {
-          shadowBefore = $$1(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
+          shadowBefore = $$1(("<div class=\"m8-swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
           $slideEl.append(shadowBefore);
         }
         if (shadowAfter.length === 0) {
-          shadowAfter = $$1(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
+          shadowAfter = $$1(("<div class=\"m8-swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
           $slideEl.append(shadowAfter);
         }
         if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
@@ -7262,7 +7262,7 @@ var Flip = {
     var $wrapperEl = swiper.$wrapperEl;
     slides
       .transition(duration)
-      .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+      .find('.m8-swiper-slide-shadow-top, .m8-swiper-slide-shadow-right, .m8-swiper-slide-shadow-bottom, .m8-swiper-slide-shadow-left')
       .transition(duration);
     if (swiper.params.virtualTranslate && duration !== 0) {
       var eventTriggered = false;
@@ -7371,14 +7371,14 @@ var Coverflow = {
       $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
       if (params.slideShadows) {
         // Set shadows
-        var $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-        var $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+        var $shadowBeforeEl = isHorizontal ? $slideEl.find('.m8-swiper-slide-shadow-left') : $slideEl.find('.m8-swiper-slide-shadow-top');
+        var $shadowAfterEl = isHorizontal ? $slideEl.find('.m8-swiper-slide-shadow-right') : $slideEl.find('.m8-swiper-slide-shadow-bottom');
         if ($shadowBeforeEl.length === 0) {
-          $shadowBeforeEl = $$1(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+          $shadowBeforeEl = $$1(("<div class=\"m8-swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
           $slideEl.append($shadowBeforeEl);
         }
         if ($shadowAfterEl.length === 0) {
-          $shadowAfterEl = $$1(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+          $shadowAfterEl = $$1(("<div class=\"m8-swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
           $slideEl.append($shadowAfterEl);
         }
         if ($shadowBeforeEl.length) { $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0; }
@@ -7396,7 +7396,7 @@ var Coverflow = {
     var swiper = this;
     swiper.slides
       .transition(duration)
-      .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+      .find('.m8-swiper-slide-shadow-top, .m8-swiper-slide-shadow-right, .m8-swiper-slide-shadow-bottom, .m8-swiper-slide-shadow-left')
       .transition(duration);
   },
 };
