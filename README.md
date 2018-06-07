@@ -1,5 +1,6 @@
 # profi.ru
-profi.ru
 
-# npm i
-# npm start - сборка build и запуск сервера
+Landing page for 8 march
+
+### npm i
+### npm start - compiling build and dev-server start
